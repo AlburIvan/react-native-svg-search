@@ -49,13 +49,12 @@ shell
 
         if(name) {
 
-            if( output === undefined) {
+            if(output === undefined) {
                log(LogSeverity.INFO, "Output dir not defined, using default one [assets/icons]");
             }
 
-            if( filename === undefined) {
-                filename = getDefaultName(name);
-                log(LogSeverity.INFO, `File's name not defined, using default one [${filename}]\n`);
+            if(filename === undefined) {
+                log(LogSeverity.INFO, `File name not defined, using default one [${getDefaultName(filename)}]\n`);
             }
 
             data.svgName = name;
@@ -80,13 +79,12 @@ shell
                     }
         
                     if(!answers.filename) {
-                        answers.filename = getDefaultName(answers.svg);
-                        log(LogSeverity.INFO, `File's name not defined, using default one [${answers.filename}]\n`);
+                        log(LogSeverity.INFO, `File's name not defined, using default one [${getDefaultName(answers.filename)}]\n`);
                     }
 
                     data.svgName = answers.svg;
                     data.className = getClassName(answers.filename);
-                    data.fileName = getDefaultName(answers.filename);
+                    data.fileName = answers.filename ? getDefaultName(answers.filename) : getDefaultName(answers.svg);
                     data.outputDir = answers.output ? answers.output : "assets/icons";
 
                     let parser = new FlatIconParser();
@@ -104,7 +102,7 @@ shell
     .description('...')
     .option('-o, --output <output>', 'Save the ouput in a different directory')
     .action( (dir) => {
-        log(LogSeverity.INFO, 'Not yet implemented!');
+        log(LogSeverity.DEBUG, 'Not yet implemented!');
     });
 
 shell.parse(process.argv);
