@@ -149,11 +149,34 @@ export default class FlatIconParser {
      * @param {String} svgName 
      */
     _getdownloadURL(svgName) {
+ 
+        let id = svgName.substring(svgName.indexOf('_') + 1);
 
-        let id = svgName.substring(svgName.indexOf('_') + 1, svgName.indexOf('_') + 4);
-        let fullId = svgName.substring(svgName.indexOf('_') + 1);
+        let subIndex = 0;
 
-        let url =  `https://image.flaticon.com/icons/svg/${id}/${fullId}.svg`;
+        switch(id.length) {
+
+            case 6:
+                subIndex = 3;
+                break;
+
+            case 5:
+                subIndex = 2;
+                break;
+
+            case 4:
+                subIndex = 1;
+                break;
+
+            default:
+                subIndex = 3;
+                break;
+        }
+
+        let index = id.substring(0, subIndex);
+        let fullIndex = svgName.substring(svgName.indexOf('_') + 1);
+
+        let url =  `https://image.flaticon.com/icons/svg/${index}/${fullIndex}.svg`;
 
         log(LogSeverity.INFO, `Your download URL is: ${url}`);
         return url;
