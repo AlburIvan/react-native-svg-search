@@ -4,18 +4,30 @@
   "description": "This CLI gets an icon from https://FlatIcon.com and ouputs the react-native compatible SVG in a folder",
   "main": "index.js",
   "author": "Ivan Alburquerque <albur.ivan@outlook.com>",
+  "license": "Apache-2.0",
   "preferGlobal": true,
   "bin": {
     "react-svg": "./index.js"
-  },
-  "license": "Apache-2.0",
-  "repository": {
-    "url": "https://github.com/AlburIvan/react-native-svg-search"
   },
   "scripts": {
     "start": "node index.js search",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "react",
+    "react-native",
+    "flaticon",
+    "icon" ,
+    "svg",
+    "component"
+  ],
+  "homepage": "https://github.com/AlburIvan/react-native-svg-search#readme",
+  "repository": {
+    "url": "https://github.com/AlburIvan/react-native-svg-search"
+  },
+  "bugs": {
+		"url": "https://github.com/AlburIvan/react-native-svg-search/issues"
+	},
   "dependencies": {
     "axios": "^0.17.0",
     "babel-core": "^6.26.0",
