@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 function Utils() {}
 
 export function getDefaultName(name) {
@@ -9,7 +11,6 @@ export function getDefaultName(name) {
         .replace(/\./g, '')
         // to lowercase
         .toLowerCase();
-
 
     if(name.includes('_'))
         tempName = `${name.substring(0, name.indexOf('_'))}.icon.js`;
@@ -41,4 +42,41 @@ export function getClassName(filename) {
         return tmpName;
     }
 
+}
+
+export function log(severity, msg) {
+
+    let tag = "";
+
+    switch (severity) {
+        case LogSeverity.DEBUG:
+            tag = chalk.blue('[debug] -> ');
+            break;
+
+        case LogSeverity.INFO:
+            tag = chalk.yellow('[info] -> ');
+        break;
+
+        case LogSeverity.ERROR:
+            tag = chalk.red('[error] -> ');
+        break;
+    
+        case LogSeverity.SUCCESS:
+            tag = chalk.green('[success] -> ');
+        break;
+
+        default:
+            tag = chalk.blue('[debug] -> ');
+            break;
+    }
+
+    console.log(`${tag} ${msg}`);
+}
+
+
+export const LogSeverity = {
+    DEBUG: 0,
+    INFO: 1,
+    ERROR: 2,
+    SUCCESS: 3,
 }

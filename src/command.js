@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import { prompt } from "inquirer";
-import FlatIconParser from "./flaticon.parser.js";
-import Utils,{ getDefaultName, getClassName } from "./utils.js";
+import FlatIconParser from "./parsers/flaticon.parser";
+import Utils,{ getDefaultName, getClassName, LogSeverity, log } from "./utils.js";
 
 
 const shell = new Command();
@@ -36,9 +36,6 @@ const questions = [
 shell
     .version('1.0.0')
     .description('This CLI gets an icon from FlatIcon and ouputs the react-native compatible SVG in a folder')
-    .option('-n, --name', 'The name of the SVG icon as seen in FlatIcon\'s url')
-    .option('-f, --filename <filename>', 'The new name we should give to the icon (we append .icon.js)')
-    .option('-o, --output <output>', 'Save the SVG ouput in a different directory');
 
 
 shell
@@ -53,12 +50,12 @@ shell
         if(name) {
 
             if( output === undefined) {
-                console.log("Output dir not defined, using default one [assets/icons]");
+               log(LogSeverity.INFO, "Output dir not defined, using default one [assets/icons]");
             }
 
             if( filename === undefined) {
                 filename = getDefaultName(name);
-                console.log(`File's name not defined, using default one [${filename}]\n`);
+                log(LogSeverity.INFO, `File's name not defined, using default one [${filename}]\n`);
             }
 
             data.svgName = name;
@@ -74,16 +71,17 @@ shell
                 .then((answers) => {
 
                     if(!answers.svg) {
-                        throw Error("No icon name defined");
+                        log(LogSeverity.ERROR, "No icon name defined, try again...");
+                        return;
                     }
 
                     if(!answers.output) {
-                        console.log("\nOutput directory not defined, using default one [assets/icons]\n");
+                        log(LogSeverity.INFO, "Output directory not defined, using default one [assets/icons]\n");
                     }
         
                     if(!answers.filename) {
                         answers.filename = getDefaultName(answers.svg);
-                        console.log(`File's name not defined, using default one [${answers.filename}]\n`);
+                        log(LogSeverity.INFO, `File's name not defined, using default one [${answers.filename}]\n`);
                     }
 
                     data.svgName = answers.svg;
@@ -93,8 +91,20 @@ shell
 
                     let parser = new FlatIconParser();
                     parser.getReactIcon(data);
+                })
+                .catch((err) => {
+                    log(LogSeverity.ERROR, err);
                 });
         }
     })
+
+
+shell
+    .command('convert [output]')
+    .description('...')
+    .option('-o, --output <output>', 'Save the ouput in a different directory')
+    .action( (dir) => {
+        log(LogSeverity.INFO, 'Not yet implemented!');
+    });
 
 shell.parse(process.argv);
