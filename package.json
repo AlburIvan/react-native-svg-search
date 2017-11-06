@@ -1,18 +1,21 @@
 {
   "name": "react-svg-cli",
   "version": "1.0.0",
-  "description": "This CLI gets an icon from FlatIcon and ouputs the react-native compatible SVG in a folder",
+  "description": "This CLI gets an icon from https://FlatIcon.com and ouputs the react-native compatible SVG in a folder",
   "main": "index.js",
+  "author": "Ivan Alburquerque <albur.ivan@outlook.com>",
+  "preferGlobal": true,
+  "bin": {
+    "react-svg": "./index.js"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "url": "https://github.com/AlburIvan/react-native-svg-search"
+  },
   "scripts": {
-    "start": "node index.js search-svg",
-    "build": "babel src -d build",
+    "start": "node index.js search",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "react-svg-icon": "index.js"
-  },
-  "author": "Ivan Alburquerque",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.17.0",
     "babel-core": "^6.26.0",
