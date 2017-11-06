@@ -1,32 +1,32 @@
-## react-native-svg-search
-This CLI is a helper to include an icon from FlatIcon and ouputs the react-native compatible SVG component in your desired directory
+## react-native-svg-cli
+This CLI is a helper to include an icon from FlatIcon and ouputs the react-native compatible SVG component in your desired directory.
 
 
 #### Table of Contents
 
 * [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
+* [How to Use](#how-to-use)
 * [License](#license)
 
 
 ## Installation
 
 ```
-$ npm install react-svg-cli
+$ npm install react-native-svg-cli
 ```
 
 
-## Usage
+## How to Use
 
 ```
-$ react-svg search -n name -f filename -o outputDir
+$ rn-svg-cli search -n name -f filename -o outputDir
 ```
-Note: Flags can be ommited, but order should be: command <name> <filename> <output>
+Note: Flags can be ommited, but order should be respected:  
+ ```$ rn-svg-cli search <name> <filename> <output>```
 
 OR
 ```
-$ react-svg search
+$ rn-svg-cli search
 ```
 
 With the later, you will be asked the next questions:  
@@ -34,12 +34,10 @@ With the later, you will be asked the next questions:
 * Whats the name of the Icon:  
 * What name should the new file have (we will append .icon.js):  
 * Where should we save the new file (default assets/icons):  
+  
 
 
-
-
-## Credits
-
+![][cli-demo]
 
 
 ## License
@@ -60,4 +58,4 @@ With the later, you will be asked the next questions:
 
 
 
-[cli-demo]: https://dribbble.com/joshcummingsdesign
+[cli-demo]: https://gif
