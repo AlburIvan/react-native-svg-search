@@ -3,21 +3,29 @@ import chalk from "chalk";
 function Utils() {}
 
 export function getDefaultName(name) {
-    
-    let tempName = "default.icon.js";
 
-    name = name
-        // replace all dots
-        .replace(/\./g, '')
-        // to lowercase
-        .toLowerCase();
+    let filename = "default.icon.js";
 
-    if(name.includes('_'))
-        tempName = `${name.substring(0, name.indexOf('_'))}.icon.js`;
-    else
-        tempName = `${name}.icon.js`;
+    try {
+        name = name
+            // replace all dots
+            .replace(/\./g, '')
+            // replace all dashes
+            .replace(/\-/g, '')
+            // to lowercase
+            .toLowerCase();
 
-    return tempName;
+        if(name.includes('_'))
+            filename = `${name.substring(0, name.indexOf('_'))}.icon.js`;
+        else
+            filename = `${name}.icon.js`;
+
+        return filename;
+    } catch (error) {
+        log(LogSeverity.DEBUG, error);
+    }
+
+    return filename;
 }
 
 
@@ -29,19 +37,26 @@ export function getClassName(filename) {
         filename = filename
             // replace all dots
             .replace(/\./g, '')
-            // replace all dots
+            // replace all underscores
             .replace(/\_/g, '')
+            // replace all dashes
+            .replace(/[0-9]/g, '')
             // to lowercase
             .toLowerCase();
+
+        filename = filename.split('-')
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join('');
 
         let className = `${filename.charAt(0).toUpperCase() + filename.slice(1)}Icon`;
         
         return className;
     }
-    catch(err) {
-        return tmpName;
+    catch(error) {
+        log(LogSeverity.DEBUG, error);
     }
 
+    return tempName;
 }
 
 export function log(severity, msg) {
