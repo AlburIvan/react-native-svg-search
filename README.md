@@ -21,8 +21,8 @@ $ npm install react-native-svg-cli
 
 1. Open https://www.flaticon.com/
 2. Search for your desired icon and click on it
-3. On the search bar look for the icon's FQN:  https://www.flaticon.com/free-icon/**github-social-logo_9310**
-4. Copy that name and and then run the cli with either option below:
+3. On the search bar look for the icon's FQN:  https://www.flaticon.com/free-icon/github-social-logo_9310
+4. Copy that name (github-social-logo_9310) and and then run the cli with either option below:
 ```
 $ rn-svg-cli search -n name -f filename -o outputDir
 ```
