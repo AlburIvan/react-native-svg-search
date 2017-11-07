@@ -1,6 +1,6 @@
 {
   "name": "react-native-svg-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This CLI gets an icon from https://FlatIcon.com and ouputs the react-native compatible SVG in a folder",
   "main": "index.js",
   "author": "Ivan Alburquerque <albur.ivan@outlook.com>",
