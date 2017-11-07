@@ -32,13 +32,11 @@
   "dependencies": {
     "axios": "^0.17.0",
     "babel-core": "^6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chalk": "^2.3.0",
     "commander": "^2.11.0",
     "inquirer": "^3.3.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
   }
 }
