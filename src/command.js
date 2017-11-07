@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { Command } from "commander";
 import { prompt } from "inquirer";
 import FlatIconParser from "./parsers/flaticon.parser";
@@ -54,12 +53,12 @@ shell
             }
 
             if(filename === undefined) {
-                log(LogSeverity.INFO, `File name not defined, using default one [${getDefaultName(filename)}]\n`);
+                log(LogSeverity.INFO, `File name not defined, using default one`);
             }
 
             data.svgName = name;
             data.className = getClassName(filename);
-            data.fileName = getDefaultName(filename);
+            data.fileName = getDefaultName(name);
             data.outputDir = output === undefined ? "assets/icons" : output;
 
             let parser = new FlatIconParser();
@@ -75,15 +74,15 @@ shell
                     }
 
                     if(!answers.output) {
-                        log(LogSeverity.INFO, "Output directory not defined, using default one [assets/icons]\n");
+                        log(LogSeverity.INFO, "Output directory not defined, using default one [assets/icons]");
                     }
         
                     if(!answers.filename) {
-                        log(LogSeverity.INFO, `File's name not defined, using default one [${getDefaultName(answers.filename)}]\n`);
+                        log(LogSeverity.INFO, `File's name not defined, using default one`);
                     }
 
                     data.svgName = answers.svg;
-                    data.className = getClassName(answers.filename);
+                    data.className = answers.filename ? getClassName(answers.filename) :  getClassName(answers.svg);
                     data.fileName = answers.filename ? getDefaultName(answers.filename) : getDefaultName(answers.svg);
                     data.outputDir = answers.output ? answers.output : "assets/icons";
 
