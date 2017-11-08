@@ -1,17 +1,18 @@
 {
   "name": "react-native-svg-cli",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "This CLI gets an icon from https://FlatIcon.com and ouputs the react-native compatible SVG in a folder",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "author": "Ivan Alburquerque <albur.ivan@outlook.com>",
   "license": "Apache-2.0",
-  "preferGlobal": true,
   "bin": {
-    "rn-svg-cli": "./index.js"
+    "rn-svg-cli": "./dist/index.js"
   },
   "scripts": {
-    "search": "node index.js search",
-    "convert": "node index.js convert",
+    "search": "node src/index.js search",
+    "convert": "node src/index.js convert",
+    "build": "babel src -d dist",
+    "prepublish": "rm -rf ./dist && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -32,6 +33,7 @@
   "dependencies": {
     "axios": "^0.17.0",
     "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "chalk": "^2.3.0",
     "commander": "^2.11.0",
