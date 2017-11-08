@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import { prompt } from "inquirer";
 import FlatIconParser from "./parsers/flaticon.parser";
-import Utils,{ getDefaultName, getClassName, LogSeverity, log } from "./utils.js";
+import Utils,{ getDefaultName, getClassName, LogSeverity, log } from "./utils";
 
 
 const shell = new Command();
