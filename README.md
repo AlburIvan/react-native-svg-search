@@ -14,7 +14,7 @@ This CLI is a helper to include an SVG component to your react-native project fr
 ## Installation
 
 ```
-$ npm install react-native-svg-cli
+$ npm install -g react-native-svg-cli
 ```
 
 
