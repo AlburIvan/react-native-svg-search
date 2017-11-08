@@ -1,1 +1,6 @@
 src
+
+
+assets/*.stg
+assets/*.psd
+assets/*.png

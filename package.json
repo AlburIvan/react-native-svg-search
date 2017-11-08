@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "author": "Ivan Alburquerque <albur.ivan@outlook.com>",
   "license": "Apache-2.0",
+  "preferGlobal": true,
   "bin": {
     "rn-svg-cli": "./dist/index.js"
   },
