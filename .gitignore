@@ -59,3 +59,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
