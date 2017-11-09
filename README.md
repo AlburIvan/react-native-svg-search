@@ -13,7 +13,7 @@ This CLI is a helper to include an SVG component to your react-native project fr
 
 ## Installation
 
-```
+```bash
 $ npm install -g react-native-svg-cli
 ```
 
@@ -31,16 +31,18 @@ $ npm install -g react-native-svg-cli
 
 ### Then run the cli with either option below:
 
-```
+```bash
 $ rn-svg-cli search -n name -f filename -o outputDir
 ```
 Note: Flags can be ommited, but order should be respected:  
- ```$ (Example) rn-svg-cli search github-social-logo_9310 githublogo assets/icons```  
+ ```bash
+$ (Example) rn-svg-cli search github-social-logo_9310 githublogo assets/icons
+```  
   
     
 ### Or you could use:
 
-```
+```bash
 $ rn-svg-cli search
 ```
 
